@@ -13085,63 +13085,143 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="k">function</span><span class="w"> </span>output <span class="p">=</span><span class="w"> </span><span class="nf">addMatrices </span><span class="p">(</span>A,B<span class="p">);</span>
+
+    <span class="n">dimesions_of_A</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+    <span class="n">dimesions_of_B</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">B</span><span class="p">);</span>
+    
+    <span class="n">rows_A</span> <span class="p">=</span> <span class="n">dimesions_of_A</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">columns_A</span> <span class="p">=</span> <span class="n">dimesions_of_A</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    
+    <span class="n">rows_B</span> <span class="p">=</span> <span class="n">dimesions_of_B</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">columns_B</span> <span class="p">=</span> <span class="n">dimesions_of_B</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="n">rows_A</span> <span class="o">~=</span> <span class="n">rows_B</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;rows must match&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">end</span>
+    
+    <span class="k">if</span> <span class="n">columns_A</span> <span class="o">~=</span> <span class="n">columns_B</span>
+        <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;columns must match&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">end</span>
+        
+    <span class="n">output</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">rows_A</span><span class="p">,</span> <span class="n">columns_B</span><span class="p">);</span>
+    
+    <span class="k">for</span> <span class="n">row</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">rows_A</span>
+        <span class="k">for</span> <span class="n">column</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">columns_A</span>
+            <span class="n">output</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">column</span><span class="p">)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">column</span><span class="p">)</span> <span class="o">+</span> <span class="n">B</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">column</span><span class="p">);</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-green w3-pale-green w3-padding-small">
-    <h3 id="-Overview%3A%20"><i class="fa fa-file-o"></i> Overview:
-</h3>
-    <ul>
-<li><strong>Teaching:</strong> 0 min</li>
-<li><strong>Exercises:</strong> 0 min</li>
-</ul>
-<p><strong>Questions</strong></p>
-<ul>
-<li>What is the purpose of this exercise?</li>
-</ul>
-<p><strong>Objectives</strong></p>
-<ul>
-<li>Understand which the multiple paths that can be taken through the exercise.</li>
-</ul>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">B</span> <span class="p">=</span> <span class="nb">magic</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">addMatrices</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A =
+
+   1   1   1   1
+   1   1   1   1
+   1   1   1   1
+   1   1   1   1
+
+B =
+
+   16    2    3   13
+    5   11   10    8
+    9    7    6   12
+    4   14   15    1
+
+ans =
+
+   17    3    4   14
+    6   12   11    9
+   10    8    7   13
+    5   15   16    2
+
+</pre>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The objective of these lessons is to create functions that perform matrix operations.</p>
-<p>Each operation will have:</p>
-<ul>
-<li>an overview of the operation</li>
-<li>a walk through of useful commands to solve the problem</li>
-<li>a solution in psudeocode</li>
-<li>a working solution</li>
-</ul>
-<p>You may use as much or as little of this to create the functions.</p>
 
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-green w3-pale-green w3-padding-small">
-    <h3 id="-Key-Points%3A%20"><i class="fa fa-key"></i> Key Points:
-</h3>
-    <ul>
-<li>Good luck creating your programs</li>
-</ul>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">C</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">D</span> <span class="p">=</span> <span class="nb">magic</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">addMatrices</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>C =
+
+   1   1
+   1   1
+
+D =
+
+   8   1   6
+   3   5   7
+   4   9   2
+
+rows must match
+</pre>
 </div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
