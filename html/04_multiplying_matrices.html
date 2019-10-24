@@ -13103,10 +13103,27 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here is a reminder of matrix multiplication:</p>
+<h3 id="Quick-reminder-about-matrix-multiplication">Quick reminder about matrix multiplication<a class="anchor-link" href="#Quick-reminder-about-matrix-multiplication">&#182;</a></h3><p>Multiplying two matrices requires elements in the first matrix's rows to be multipled with elements in the second matrices columns these products are then added. The procedure is shown below for a square matrix:</p>
+<p>The first row's elements multiplied by respective first column's elements then added gives the following.</p>
+$$ \begin{pmatrix} \color{red}1 &amp; \color{red}3 \\ 5 &amp; 7 \end{pmatrix} \times \begin{pmatrix} \color{blue}2 &amp; 4 \\ \color{blue}6 &amp; 8 \end{pmatrix} = \begin{pmatrix} \color{red}1 \times \color{blue}2 + \color{red}3 \times \color{blue}6 &amp; \dots \\ \dots &amp; \dots \end{pmatrix} $$<p>In the same way the first row is multiplied by second column to give the element at $a_{1,2}$. Notice the how results position is given by the row and column used in the multiplication.</p>
+$$ \begin{pmatrix} \color{red}1 &amp; \color{red}3 \\ 5 &amp; 7 \end{pmatrix} \times \begin{pmatrix} 2 &amp; \color{blue}4 \\ 6 &amp; \color{blue}8 \end{pmatrix} = \begin{pmatrix} 20 &amp; \color{red}1 \times \color{blue}4 + \color{red}3 \times \color{blue}8 \\ \dots &amp; \dots \end{pmatrix} $$<p>The second row multiplied by first column. Again the position is given by the row and column being multiplied.</p>
+$$\begin{pmatrix} 1 &amp; 3 \\ \color{red}5 &amp; \color{red}7 \end{pmatrix} \times \begin{pmatrix} \color{blue}2 &amp; 4 \\ \color{blue}6 &amp; 8 \end{pmatrix} = \begin{pmatrix} 20 &amp; 28 \\ \color{red}5 \times \color{blue}2 + \color{red}7 \times \color{blue}6 &amp; \dots \end{pmatrix}$$<p>And finally, second row multiplied by second column.</p>
+$$\begin{pmatrix} 1 &amp; 3 \\ \color{red}5 &amp; \color{red}7 \end{pmatrix} \times \begin{pmatrix} 2 &amp; \color{blue}4 \\ 6 &amp; \color{blue}8 \end{pmatrix} = \begin{pmatrix} 20 &amp; 28 \\ 52 &amp; \color{red}5 \times \color{blue}4 + \color{red}7 \times \color{blue}8 \end{pmatrix}$$$$\begin{pmatrix} 1 &amp; 3 \\ 5 &amp; 7 \end{pmatrix} \times \begin{pmatrix} 2 &amp; 4 \\ 6 &amp; 8 \end{pmatrix} = \begin{pmatrix} 20 &amp; 28 \\ 52 &amp; 76 \end{pmatrix}$$<p>This can be extended for larger square matrices.</p>
+<p>Matrix multiplication doesn't just work for square matrices. As long as the number of columns in the first matrix matches the number of rows in the second the multiplication will be defined (i.e. if the red numbers above the braces below are equal then the multiplication can take place).</p>
+$$ \overbrace{ \begin{pmatrix} 1 &amp; 4 \end{pmatrix} }^{\color{blue}1 \times \color{red}2} \times \overbrace{ \begin{pmatrix} 2 &amp; 3 &amp; 1 \\ 4 &amp; 0 &amp; -1\end{pmatrix} }^{ \color{red}2 \times \color{blue}3} = \overbrace{ \begin{pmatrix} 18 &amp; 3 &amp; -3 \end{pmatrix} }^{ \color{blue}1 \times \color{blue}3} $$<p>Notice that number of rows in the first matrix and the number of columns in the second matrix gives the dimensions of the resulting matrix (i.e. blue numbers above on the LHS give the dimensions of the resulting matrix).</p>
+<p>From this it is important to note that the order matters with matrix multiplication. Multiplying two matrices in a different order can give a different answer or may not even be possible. Matrix multiplication is not commutative i.e. usually $A \times B \neq B \times A $.</p>
+<p>The answer is given by rows multiplied by columns as before - the working is shown below.</p>
+$$ \begin{pmatrix} \color{red}1 &amp; \color{red}4 \end{pmatrix} \times \begin{pmatrix} \color{blue}2 &amp; 3 &amp; 1 \\ \color{blue}4 &amp; 0 &amp; -1\end{pmatrix} = \begin{pmatrix} \color{red}1 \times \color{blue}2 + \color{red}4 \times \color{blue}4 &amp; 3 &amp; -3 \end{pmatrix}$$$$ \begin{pmatrix} \color{red}1 &amp; \color{red}4 \end{pmatrix} \times \begin{pmatrix} 2 &amp; \color{blue}3 &amp; 1 \\ 4 &amp; \color{blue}0 &amp; -1\end{pmatrix} = \begin{pmatrix} 18 &amp; \color{red}1 \times \color{blue}3 + \color{red}4 \times \color{blue}0 &amp; -3 \end{pmatrix}$$<p>$$\begin{pmatrix} \color{red}1 &amp; \color{red}4 \end{pmatrix} \times \begin{pmatrix} 2 &amp; 3 &amp; \color{blue}1 \\ 4 &amp; 0 &amp; \color{blue}{-1}\end{pmatrix} = \begin{pmatrix} 18 &amp; 3 &amp; \color{red}1 \times \color{blue}1 + \color{red}4 \times \color{blue}{-1} \end{pmatrix}$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here's a neat picture explaining the procedure from wikipedia:</p>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Matrix_multiplication_diagram_2.svg/800px-Matrix_multiplication_diagram_2.svg.png" alt="Matrix addition example"></p>
 <p>The row elements are multiplied by corresponding column elements in the other matrix then added. <a href="https://en.wikipedia.org/wiki/Matrix_multiplication">More information can be found on wikipedia</a></p>
-<p>More hints and examples to come.</p>
 
 </div>
 </div>
@@ -13130,7 +13147,7 @@ div#notebook {
 <div class="w3-bar w3-blue-grey">
 <a href="./03_adding_matrices_hints.html" class="w3-left-align w3-bar-item w3-button w3-mobile" style="width:33%"><h2><i class="fa fa-angle-double-left"></i> Previous</h2></a>
 <a href="./00_schedule.html" class="w3-bar-item w3-button w3-center w3-mobile" style="width:33%"><h2>Schedule</h2></a>
-<a href="./05_untitled_episode.html" class="w3-right-align w3-bar-item w3-button w3-right w3-mobile" style="width:33%"><h2>Next <i class="fa fa-angle-double-right"></i></h2></a>
+<a href="./05_multiplying_matrices_hints.html" class="w3-right-align w3-bar-item w3-button w3-right w3-mobile" style="width:33%"><h2>Next <i class="fa fa-angle-double-right"></i></h2></a>
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <link rel="icon" type="image/png" href="css/favicon.png"/>
 
-<title>03_adding_matrices_hints</title>
+<title>98_other_solution</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13088,7 +13088,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Adding-Matrices---Hints">Adding Matrices - Hints<a class="anchor-link" href="#Adding-Matrices---Hints">&#182;</a></h1>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13099,21 +13099,16 @@ div#notebook {
     <h3 id="-Overview%3A%20"><i class="fa fa-file-o"></i> Overview:
 </h3>
     <ul>
-<li><strong>Teaching:</strong> 5 min</li>
-<li><strong>Exercises:</strong> 10 min</li>
+<li><strong>Teaching:</strong> 0 min</li>
+<li><strong>Exercises:</strong> 0 min</li>
 </ul>
 <p><strong>Questions</strong></p>
 <ul>
-<li>What MATLAB functions will be useful in coding matrix addition?</li>
+<li>What is the purpose of this exercise?</li>
 </ul>
 <p><strong>Objectives</strong></p>
 <ul>
-<li>understand how to use the <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">size</code> function</li>
-<li>be able to use nested <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">for</code> loops</li>
-<li>remember how to declare a <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">function</code></li>
-<li>remember how to test for equality <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">==</code></li>
-<li>use the <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">zeros</code> function to store answers</li>
-<li>read pseudocode</li>
+<li>Understand which the multiple paths that can be taken through the exercise.</li>
 </ul>
 </div>
 </div>
@@ -13122,392 +13117,16 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Size-function">Size function<a class="anchor-link" href="#Size-function">&#182;</a></h3><p>We must first be able to find out the size of a given matrix. The <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">size</code> command is useful for this. Consider the following example.</p>
+<p>The objective of these lessons is to create functions that perform matrix operations.</p>
+<p>Each operation will have:</p>
+<ul>
+<li>an overview of the operation</li>
+<li>a walk through of useful commands to solve the problem</li>
+<li>a solution in psudeocode</li>
+<li>a working solution</li>
+</ul>
+<p>You may use as much or as little of this to create the functions.</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="n">X</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span> <span class="p">;</span> <span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">dimesions</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="nb">rows</span> <span class="p">=</span> <span class="n">dimesions</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">columns</span> <span class="p">=</span> <span class="n">dimesions</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>X =
-
-    1    2    3    4    5
-    6    7    8    9   10
-
-dimesions =
-
-   2   5
-
-rows =  2
-columns =  5
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-blue w3-pale-blue w3-padding-small">
-    <h3 id="-size-function%20"><i class="fa fa-info-circle"></i> size function
-</h3>
-    <p><code style="background-color:#F7F7F7;border:1px solid #CFCFCF">size(M)</code> returns a matrix <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">[r,c]</code> containing the number of rows, r, and the number of columns, c, of matrix <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">M</code>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="For-loop-recap">For loop recap<a class="anchor-link" href="#For-loop-recap">&#182;</a></h3><p>We also need to be able to loop through elements in a matrix to add each element together. Using the Matrix <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">X</code> and the variable rows as defined earlier we can use a <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">for</code> loop to loop through the rows of <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">X</code>. Remeber <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">X(1,:)</code> returns the first row of matrix <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">X</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">rows</span>
-    <span class="nb">printf</span><span class="p">(</span><span class="s">&quot;Row %d is: &quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
-    <span class="n">X</span><span class="p">(</span><span class="n">row</span><span class="p">,:)</span>
-<span class="k">end</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Row 1 is: ans =
-
-   1   2   3   4   5
-
-Row 2 is: ans =
-
-    6    7    8    9   10
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To cycle through each element in the <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">X</code> we can use nested <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">for</code> loops. Nested <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">for</code> loops are loops inside other loops. Consider the following example again about matrix <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">X</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">rows</span>
-    <span class="k">for</span> <span class="n">column</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">columns</span>
-        <span class="nb">printf</span><span class="p">(</span><span class="s">&quot;Element from row %d, column %d &quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span><span class="c">%note in MATLAB this function is called fprintf</span>
-        <span class="n">X</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">column</span><span class="p">)</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Element from row 1, column 1 ans =  1
-Element from row 1, column 2 ans =  2
-Element from row 1, column 3 ans =  3
-Element from row 1, column 4 ans =  4
-Element from row 1, column 5 ans =  5
-Element from row 2, column 1 ans =  6
-Element from row 2, column 2 ans =  7
-Element from row 2, column 3 ans =  8
-Element from row 2, column 4 ans =  9
-Element from row 2, column 5 ans =  10
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-blue w3-pale-blue w3-padding-small">
-    <h3 id="-For-loops%20"><i class="fa fa-info-circle"></i> For loops
-</h3>
-    <p>A <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">for</code> loop repeats a set of instructions for each element in an array.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Checking-for-equality">Checking for equality<a class="anchor-link" href="#Checking-for-equality">&#182;</a></h3><p>Next is a little reminder on how we can check if two quantities are equal.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="nb">rows</span> <span class="p">=</span> <span class="mi">2</span>
-
-<span class="k">if</span> <span class="nb">rows</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;This code will get executed&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="k">if</span> <span class="nb">rows</span> <span class="o">!=</span> <span class="mi">2</span> <span class="c">% not equal is written as ~= in MATLAB</span>
-    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;This code won&#39;t get executed&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>rows =  2
-This code will get executed
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-blue w3-pale-blue w3-padding-small">
-    <h3 id="-Equality%20"><i class="fa fa-info-circle"></i> Equality
-</h3>
-    <p>Remember <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">=</code> is used to assign a value to a variable. <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">==</code> is used to check if two things are equal.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="zeros-function">zeros function<a class="anchor-link" href="#zeros-function">&#182;</a></h3><p>It is often useful to have somewhere to store answers. We can do this by creating a matrix full of zeros using the <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">zeros</code> function. For example:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ans =
-
-   0   0   0
-   0   0   0
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-blue w3-pale-blue w3-padding-small">
-    <h3 id="-zeros-function%20"><i class="fa fa-info-circle"></i> zeros function
-</h3>
-    <p>It is often useful to create a place to store your answers, <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">zeros(n,m)</code> will create an <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">n</code> by <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">m</code> array of zeros.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Defining-functions">Defining functions<a class="anchor-link" href="#Defining-functions">&#182;</a></h3><p>Finally we'll need to wrap all this stuff into a <code style="background-color:#F7F7F7;border:1px solid #CFCFCF">function</code>. When you define a function you define the functions inputs and outputs. Remember that the variable names inside the function are local to it and won't interfere with variables of the same name outside the function.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="k">function</span><span class="w"> </span>output <span class="p">=</span><span class="w"> </span><span class="nf">getMatrixRows </span><span class="p">(</span>matrix<span class="p">);</span>
-    <span class="n">dimesions</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
-    <span class="nb">rows</span> <span class="p">=</span> <span class="n">dimesions</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">output</span> <span class="p">=</span> <span class="nb">rows</span><span class="p">;</span>
-<span class="k">end</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">magic</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">disp</span><span class="p">(</span><span class="s">&quot;The number of rows in M is...&quot;</span><span class="p">)</span>
-<span class="n">getMatrixRows</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>M =
-
-   16    2    3   13
-    5   11   10    8
-    9    7    6   12
-    4   14   15    1
-
-The number of rows in M is...
-ans =  4
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-blue w3-pale-blue w3-padding-small">
-    <h3 id="-function-declaration%20"><i class="fa fa-info-circle"></i> function declaration
-</h3>
-    <p>Remember that a function only has access to the variables that are passed into it. Also, the variable names used inside the function can be the same as variable names outside the function - each function has its own name space.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="w3-panel w3-leftbar w3-border-yellow w3-pale-yellow w3-padding-small">
-    <h3 id="-Create-the-adding-matrices-funciton%20"><i class="fa fa-pencil-square-o"></i> Create the adding matrices funciton
-</h3>
-    <p>Finally all of these elements are going to be drawn together to make the whole function. I have given an outline of the function in psuedocode (Psuedocode is easily readible 'almost code' that makes writing the final program easier). Convert the psuedocode into realcode!:</p>
-
-<pre><code style="">function answer = addMatrices(A,B)
-
-rows_A
-rows_B
-columns_A
-columns_B
-
-answer = empty matrix to store answers
-
-if rows in A and B are not equal
-    print matrices must have the smae number of rows
-end
-
-if columns in A and B are not equal
-    print matrices must have the same number of columns
-end
-
-for row in rows
-    for column in columns
-        answer(row,column) = A(row,column) + B(row,column)
-    end
-end
-
-end</code></pre>
-<p><a href="03_adding_matrices_hints-soln.html">Solution</a></p>
-</div>
 </div>
 </div>
 </div>
@@ -13518,10 +13137,7 @@ end</code></pre>
     <h3 id="-Key-Points%3A%20"><i class="fa fa-key"></i> Key Points:
 </h3>
     <ul>
-<li><code style="background-color:#F7F7F7;border:1px solid #CFCFCF">size</code> can be used to get the dimesions of a matrix</li>
-<li><code style="background-color:#F7F7F7;border:1px solid #CFCFCF">for</code> loops can be placed inside each other</li>
-<li><code style="background-color:#F7F7F7;border:1px solid #CFCFCF">==</code> can be used to check equality</li>
-<li><code style="background-color:#F7F7F7;border:1px solid #CFCFCF">~=</code> is for not equal</li>
+<li>Good luck creating your programs</li>
 </ul>
 </div>
 </div>
@@ -13531,9 +13147,9 @@ end</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="w3-bar w3-blue-grey">
-<a href="./02_adding_matrices.html" class="w3-left-align w3-bar-item w3-button w3-mobile" style="width:33%"><h2><i class="fa fa-angle-double-left"></i> Previous</h2></a>
+<a href="./06_multiplying_matrices.html" class="w3-left-align w3-bar-item w3-button w3-mobile" style="width:33%"><h2><i class="fa fa-angle-double-left"></i> Previous</h2></a>
 <a href="./00_schedule.html" class="w3-bar-item w3-button w3-center w3-mobile" style="width:33%"><h2>Schedule</h2></a>
-<a href="./04_multiplying_matrices.html" class="w3-right-align w3-bar-item w3-button w3-right w3-mobile" style="width:33%"><h2>Next <i class="fa fa-angle-double-right"></i></h2></a>
+<a href="./99_episode_template.html" class="w3-right-align w3-bar-item w3-button w3-right w3-mobile" style="width:33%"><h2>Next <i class="fa fa-angle-double-right"></i></h2></a>
 </div>
 </div>
 </div>
